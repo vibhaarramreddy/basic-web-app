@@ -37,5 +37,38 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("multiplied by")) {
+    const numbers = query.match(/\d+/g);
+
+    if (numbers && numbers.length >= 2) {
+      const x = parseInt(numbers[0]);
+      const y = parseInt(numbers[1]);
+      
+      const result = x * y;
+      return result.toString();
+    } else {
+      return "";
+    }
+  }
+
+  if (query.toLowerCase().includes("a square and a cube")) {
+    const numbers = query.match(/\d+/g);
+
+    
+    if (numbers && numbers.length >= 0) {
+
+      for (const n of numbers) {
+        const number = parseInt(n);
+        
+        if (Math.sqrt(number) % 1 === 0 && Math.cbrt(number) % 1 === 0) {
+          return number.toString();
+        }
+      }
+    } else {
+      return "";
+    }
+  }
+
+
   return "";
 }
