@@ -57,18 +57,21 @@ export default function QueryProcessor(query: string): string {
     
     if (numbers && numbers.length >= 0) {
 
+      const validNumbers = [];
+
       for (const n of numbers) {
         const number = parseInt(n);
         
         if (Math.sqrt(number) % 1 === 0 && Math.cbrt(number) % 1 === 0) {
-          return number.toString();
+          validNumbers.push(number.toString());
         }
       }
+
+      return validNumbers.join(', ');
     } else {
       return "";
     }
   }
-
 
   return "";
 }
