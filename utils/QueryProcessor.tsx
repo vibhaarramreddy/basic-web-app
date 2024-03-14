@@ -11,7 +11,7 @@ export default function QueryProcessor(query: string): string {
       "aaa"
     );
   }
-  if (query.toLowerCase().includes("Which of the following numbers is the largest:")) {
+  if (query.toLowerCase().includes("largest")) {
 
      const numbers = query.match(/\d+/g);
  
